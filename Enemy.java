@@ -1,5 +1,6 @@
 
 public enum Enemy {
+		
 	SKELETON("A skeletal WARRIOR from the VOID.", 1), BANSHEE("A rampant, howling presence from the VOID.", 1), 
 	DRAKE("A small DRAGON, yet still bigger than you.", 2), SPECTRE("An ectoplasmic vision from the VOID.", 2),
 	GHOUL("A freakish beast, hungry for destruction.", 2), GREMLIN("A small IMP who enjoys making big trouble.", 0),
@@ -16,7 +17,7 @@ public enum Enemy {
 		this.desc = desc;
 		this.expType = expType;
 		this.level = (int)(User.LEVEL * Math.random()) + (int)(Math.random() * 4);
-		this.exp = this.getExp();
+		this.exp = this.setExp();
 		this.health = (int)(level * (Math.random() * 15) + 7);
 		this.name = this.toString();
 	}
@@ -48,11 +49,7 @@ public enum Enemy {
 		return this.exp;
 	}
 	
-	void putStats() {
-		sub("ENEMY: " + this.name + ", " + this.desc,
-			"LEVEL: " + this.level,
-			"HEALTH: " + this.health);	
-	}
+	
 	
 	void sub(String...str) {
 		TextIO.putln("\t\t**********************************\n");
@@ -61,4 +58,12 @@ public enum Enemy {
 		}
 	
 	}
+	
+	void putStats() {
+		sub("ENEMY: " + this.name + ", " + this.desc,
+			"LEVEL: " + this.level,
+			"HEALTH: " + this.health);	
+	}
+
+	
 }
