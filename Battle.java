@@ -1,16 +1,20 @@
 public class Battle {
 	
 	Enemy enemy;
-	
-	void battle() {
-		
-	}
+	User.Player title = User.Player.TITLE;
 	
 	void pickEnemy() {
 		int x = (int)(Math.random() * 7);
 		enemy = Enemy.values()[x];
-	}
+	} // end pickEnemy() //
+
+	void battle() {
+		pickEnemy();
+		sect("You are under attack, " + title);
+		enemy.putStats();
+	} // end battle(); //
 	
+		
 	
 	public static void pl(String x) {
 		TextIO.putln(x);
