@@ -5,18 +5,24 @@ public class JGame {
 		
 		sect("Welcome to KUSHTOPIA, where danger and adventure lurk around every threshold.",
 				"Let's start by getting to know you a little better.");
-		User.Init(); // All user info is now initialized and stored in enums/classes //
+		User.Player.Init(); // All user info is now initialized and stored in enums/classes //
+		sleep(2500);
 		sect("AMAZING! We're done getting to know each other.",
 				"Now here are your general stats before we start telling your story.");
 		pl("\t\t**********************************\n");
-		User.Player.putStats();
+		User.putStats();
 		pl("\t\t**********************************\n\n");
+		sleep(3000);
 		sub("Now let's jump into the STORY, then. ");
 		boolean ready = false;
 		boolean running = true;
 		while(!ready){
 			p("\t Are you ready? >>> \t ? ");
 			ready = TextIO.getlnBoolean();
+			if(!ready){
+				pl("Okie dokie; take your time, TRAVELLER...");
+				sleep(2500);
+			}
 		}
 		
 		sect("Many eons ago, the land that we know as KUSHTOPIA was as lush as could be.",
@@ -32,7 +38,7 @@ public class JGame {
 				"They made a quick pull through the village and a B-line toward the castle; where the king slept, \n"
 				+ " \t\t > unaware of the terror that had befell his beloved KINGDOM.");
 		
-		Battle.battle();
+		
 		
 		
 		
@@ -72,5 +78,15 @@ public class JGame {
 			pl("\t" + x + "\n");
 		}
 	}
+	
+	// thread sleep //
+	
+	public static void sleep(int x){
+		try{
+			Thread.sleep(x);
+		} catch (InterruptedException e){
+			Thread.currentThread().interrupt();
+		}
+	} // end sleep() //
 
 }
