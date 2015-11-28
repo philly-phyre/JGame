@@ -3,6 +3,7 @@ public class Battle {
 	Enemy enemy;
 	User.Player TITLE = User.Player.TITLE;
 	String CLASS = User.Player.CLASS.desc;
+	int LEVEL = User.LEVEL;
 	
 	void pickEnemy() {
 		int x = (int)(Math.random() * 7);
@@ -18,7 +19,7 @@ public class Battle {
 		} catch (InterruptedException e) {
 			Thread.currentThread().interrupt();
 		}
-		sub();
+		putOptions();
 		
 	} // end battle(); //
 	
@@ -51,6 +52,7 @@ public class Battle {
 			}
 			break;
 		case "DEFEND":
+			pl("\t You ready your guard! \n");
 			
 			break;
 		case "ITEMS":
@@ -69,24 +71,38 @@ public class Battle {
 	
 	
 	public int attack() {
-		int LEVEL = User.LEVEL;
 		int ATTACK = 0;		
 		switch(CLASS){
 		case "BASTION":
-			ATTACK = (int)((Math.random() * LEVEL + 1) + (Math.random() * LEVEL +8));
+			ATTACK = (int)((Math.random() * LEVEL + 1) + (Math.random() * enemy.level +8));
 		case "TITAN":
-			ATTACK = (int)((Math.random() * LEVEL + 2) + (Math.random() * LEVEL + 15));
+			ATTACK = (int)((Math.random() * LEVEL + 2) + (Math.random() * enemy.level + 15));
 		case "SCORCHER":
-			ATTACK = (int)((Math.random() * LEVEL) +  (Math.random() * LEVEL + 3));
+			ATTACK = (int)((Math.random() * LEVEL) +  (Math.random() * enemy.level + 3));
 		case "PANZER":
-			ATTACK = (int)((Math.random() * LEVEL + 1) + (Math.random() * LEVEL + 10));
+			ATTACK = (int)((Math.random() * LEVEL + 1) + (Math.random() * enemy.level + 10));
 		case "VOIDED":
-			ATTACK = (int)((Math.random() * LEVEL) + (Math.random() * LEVEL + 3));
+			ATTACK = (int)((Math.random() * LEVEL) + (Math.random() * enemy.level + 3));
 			}
 		return ATTACK;
 		}	
 
-	
+	public int defend() {
+		int DEFENCE = 0;
+		switch(CLASS){
+		case "BASTION":
+			DEFENCE = (int)((Math.random() * LEVEL + 3) + (Math.random() * enemy.level +11));
+		case "TITAN":
+			DEFENCE = (int)((Math.random() * LEVEL + 2) + (Math.random() * enemy.level + 8));
+		case "SCORCHER":
+			DEFENCE = (int)((Math.random() * LEVEL + 1) +  (Math.random() * enemy.level + 4));
+		case "PANZER":
+			DEFENCE = (int)((Math.random() * LEVEL + 3) + (Math.random() * enemy.level + 13));
+		case "VOIDED":
+			DEFENCE = (int)((Math.random() * LEVEL + 1) + (Math.random() * enemy.level + 4));
+			}
+		return DEFENCE;
+	}
 		
 	
 	public static void pl(String x) {

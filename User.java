@@ -1,13 +1,13 @@
 public class User {
 	
-	static int LEVEL = 0;
+	static int LEVEL;
+	static int HEALTH;
 	
-	final static int ATTACK = (int)(Math.random() * LEVEL + (Math.random() * 11));
-		
-	public enum Player {
+	public enum Player {		
 		NAME(""), CLASS(""), TITLE("");
 		
 		String desc;
+		
 		
 		Player(String desc){
 			this.desc = desc;
@@ -32,13 +32,13 @@ public class User {
 			} while(a);
 			Class.setClass();
 			sub("Your TITLE shall be 'TRAVELLER' at the beginning of your adventure...");
+			HEALTH = (int)((Math.random() * LEVEL + 15) + ((Math.random() * 80) * (Math.random() * 25)));;
 		} // end Init() //
-			
 	} // end Player enum //
 	
 	public static void putStats() {
 		sub("NAME:     " + Player.NAME.desc, "CLASS:    " + Player.CLASS.desc, "TITLE:    " + Player.TITLE.desc,
-				" ", "LEVEL:    " + LEVEL);
+				" ", "LEVEL:    " + LEVEL, "HEALTH:   "+ HEALTH);
 	}
 	
 	
