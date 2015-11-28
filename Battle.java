@@ -33,59 +33,58 @@ public class Battle {
 		String input;
 		boolean alive = (HEALTH > 0);
 		BATTLE: while(enemy.health > 0){
-			if(alive){
+			do {
 				sub(options[0] + "\t" + options[1], options[2] + "\t" + options[3]);
 				pl("");
 				pl("\t What shall you do?! \n");
 				input = TextIO.getlnWord();
 				for(String x : options){
-					while(!input.equals(x)){
+					if(x.equals(input)){
+					switch(input){
+					case "ATTACK":
+						if(CLASS.equals("SCORCHER") || CLASS.equals("VOIDED")){
+							pl("\t ATTACK \n \t MAGIC");
+							input = TextIO.getlnWord();
+							if(input.equals("ATTACK")){
+								attack();
+							} else {
+								// magicOptions();
+							}
+						} else {
+							attack();
+						}
+						break;
+					case "DEFEND":
+						pl("\t You ready your guard! \n");
+						defence = getDefence();
+						break;
+					case "ITEMS":
+						
+						break;
+					case "FLEE":
+						int esc = (int)(Math.random() * 5);
+						if(esc < 1){
+							sub("There is no escape this round...");
+						} else {
+							sub("You have successfully escaped from the " + enemy + ", " + TITLE);
+							enemy.health = 0;
+						}
+					} // end switch(input) //	
+					} else if(!(x.equals(input))) {
 						pl("\t Please choose a valid option!");
 						input = TextIO.getlnWord();
-					} // end while //
+					}
 				} // end for:each //
-				switch(input){
-				case "ATTACK":
-					if(CLASS.equals("SCORCHER") || CLASS.equals("VOIDED")){
-						pl("\t ATTACK \n \t MAGIC");
-						input = TextIO.getlnWord();
-						if(input.equals("ATTACK")){
-							attack();
-						} else {
-							// magicOptions();
-						}
-					} else {
-						attack();
-					}
-					break;
-				case "DEFEND":
-					pl("\t You ready your guard! \n");
-					defence = getDefence();
-					break;
-				case "ITEMS":
-					
-					break;
-				case "FLEE":
-					int x = (int)(Math.random() * 5);
-					if(x < 1){
-						sub("There is no escape this round...");
-					} else {
-						sub("You have successfully escaped from the " + enemy + ", " + TITLE);
-						enemy.health = 0;
-					}
-				}
-			} else {
+				} while(alive); // !alive //
 				sub("You have no HEALTH left...", "The will to fight has left you...","");
 				try {
 					Thread.sleep(2500);
 				} catch(InterruptedException e){
 					Thread.currentThread().interrupt();
-				}
 				JGame.lost();
 				break BATTLE;
-			} // end if/else //
+			} // do while(alive) //
 		} // end while(enemy.health > 0); enemy has been defeated at this point //
-		
 	} // end putOptions() //
 	
 	

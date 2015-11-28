@@ -33,19 +33,19 @@ public class JGame {
 		sect("Many eons ago, the land that we know as KUSHTOPIA was as lush as could be.",
 				"From the multitude of plant and animal species to the crops and citizens, no other \n"
 				+ "\t\t > region could come close to providing the same quality of life...");
-		sleep(5700);
+		sleep(700);
 		sub("When the KING was in good favors, all of his loyal constituents were blessed with his kindness.",
 				"The KING was generally a giving man, but he would be known to be selfish from time to time.",
 				"Of course, being the KING, his business was publicized far past the extent that he could comprehend.");
-		sleep(5700);
+		sleep(500);
 		sect("One swarthy day, when the sky looked as though she were ready to release darkness itself, \n"
 				 + "\t\t > a band of guileful BASTION - one of the only known groups to date - razed the village \n"
 				 + "\t\t > in the dead of night.");
-		sleep(5700);
+		sleep(700);
 		sub("...", "The group pillaged every house and store in the village surrounding the castle.",
 				"They made a quick pull through the village and a B-line toward the castle; where the king slept, \n"
 				+ " \t\t > unaware of the terror that had befell his beloved KINGDOM.");
-		sleep(5700);
+		sleep(700);
 		
 		
 		/* GAME LOOP */
@@ -53,39 +53,35 @@ public class JGame {
 		GAME: while(running){
 			sub("What would you do, " + User.Player.TITLE.desc + "?", "FIGHT \t TRAVEL", "ITEMS \t STATS",
 					"SAVE \t QUIT");
-			p("\t\t");
 			String input = TextIO.getlnWord().toUpperCase();
 			for(String x : options){
-				while(!(x.equals(input))){
-					if(input.equals("")){
-						pl("\t Please enter an option!");
-					} else {
-						pl("\t Please enter a valid option!");
+				if(input.equals(x)){
+					switch(input){
+					case "FIGHT":
+						Battle.battle();
+						break;
+					case "STATS":
+						User.putStats();
+						break;
+					case "QUIT":
+						sect("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
+							"############################################",
+							"THANK YOU FOR CHOOSING KUSHTOPIA BY TEMPEST DESIGN STUDIOS 2015",
+							"############################################",
+							"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+						sleep(3000);
+							sub("Please play this game as often as you would like!!",
+							"The source code can be found online at 'https://github.com/philly-phyre/KUSHTOPIA.git' .",
+							"Also feel free to take a look at it whenever and contact me about changes/commits or ideas!!",
+							"");
+						Quit();
+						break;
 					}
-					input = TextIO.getlnWord().toUpperCase();
-				}
+				} else if(!(input.equals(x))) {
+					pl("Please enter a valid option!");
+					input = TextIO.getlnWord();
+				} // end if/else //
 			} // end for:each //
-			switch(input){
-			case "FIGHT":
-				Battle.battle();
-				break;
-			case "STATS":
-				User.putStats();
-				break;
-			case "QUIT":
-				sect("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
-					"############################################",
-					"THANK YOU FOR CHOOSING KUSHTOPIA BY TEMPEST DESIGN STUDIOS 2015",
-					"############################################",
-					"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-				sleep(3000);
-					sub("Please play this game as often as you would like!!",
-					"The source code can be found online at 'https://github.com/philly-phyre/KUSHTOPIA.git' .",
-					"Also feel free to take a look at it whenever and contact me about changes/commits or ideas!!",
-					"");
-				Quit();
-				break;
-			}
 			continue GAME;
 		} // end GAME loop //
 		Quit();

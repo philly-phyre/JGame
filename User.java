@@ -34,7 +34,7 @@ public class User {
 			Class.setClass();
 			sub("Your TITLE shall be 'TRAVELLER' at the beginning of your adventure...");
 			TITLE.desc = "'TRAVELLER'";
-			HEALTH = (int)((Math.random() * LEVEL + 15) + ((Math.random() * 80) - (Math.random() * 25)));
+			HEALTH = (int)((Math.random() * LEVEL + 15) + (Math.random() * 70 + 55));
 			OHEALTH = HEALTH;
 		} // end Init() //
 	} // end Player enum //
