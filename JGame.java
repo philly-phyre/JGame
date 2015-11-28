@@ -45,8 +45,33 @@ public class JGame {
 		/* GAME LOOP */
 		
 		while(running){
-			
-			
+			sub("What would you do, " + User.Player.TITLE.desc + "?", "FIGHT \t TRAVEL", "ITEMS \t STATS",
+					"SAVE \t QUIT");
+			p("\t\t");
+			String input = TextIO.getlnWord().toUpperCase();
+			while(input.equals("")){
+				pl("\t Please choose a valid option!");
+			}
+			switch(input){
+			case "FIGHT":
+				Battle.battle();
+				break;
+			case "STATS":
+				User.putStats();
+				break;
+			case "QUIT":
+				sect("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
+					"############################################",
+					"THANK YOU FOR CHOOSING KUSHTOPIA BY TEMPEST DESIGN STUDIOS 2015",
+					"############################################",
+					"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
+					"Please play this game as often as you would like!!",
+					"The source code can be found online at 'https://github.com/philly-phyre/KUSHTOPIA.git' .",
+					"Also feel free to take a look at it whenever and contact me about changes/commits or ideas!!",
+					"");
+				Quit();
+				break;
+			}
 		}
 		
 	}
@@ -54,13 +79,18 @@ public class JGame {
 	public static void lost(){
 		sect("It appears that you have lost your life in battle...",
 				"Your GUARDIAN takes your vulnerable body from the scene and partially revives you.",
-				"HEALTH:    " + (User.OHEALTH/2));
+				"HEALTH:    " + (int)(User.OHEALTH/3));
+		User.HEALTH = (int)(User.OHEALTH/3);
 		try{
 			Thread.sleep(3200);
 		} catch(InterruptedException e) {
 			Thread.currentThread().interrupt();
 		}
 		sub("Continue on your journey, but be wary of the dangers native to this land...");
+	}
+	
+	public static void Quit(){
+		System.exit(0);
 	}
 	
 	// TextIO shortened routines //

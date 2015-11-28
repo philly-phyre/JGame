@@ -1,19 +1,19 @@
 public class Battle {
 	
-	Enemy enemy;
-	User.Player TITLE = User.Player.TITLE;
-	String CLASS = User.Player.CLASS.desc;
-	int LEVEL = User.LEVEL;
-	int HEALTH = User.HEALTH;
-	int attack;
-	int defence;
+	static Enemy enemy;
+	static User.Player TITLE = User.Player.TITLE;
+	static String CLASS = User.Player.CLASS.desc;
+	static int LEVEL = User.LEVEL;
+	static int HEALTH = User.HEALTH;
+	static int attack;
+	static int defence;
 	
-	void pickEnemy() {
+	static void pickEnemy() {
 		int x = (int)(Math.random() * 7);
 		enemy = Enemy.values()[x];
 	} // end pickEnemy() //
 
-	void battle() {
+	static void battle() {
 		pickEnemy();
 		sect("You are under attack, " + TITLE);
 		enemy.putStats();
@@ -29,7 +29,7 @@ public class Battle {
 	
 	public static String options[] = {"ATTACK", "DEFEND", "ITEMS", "FLEE"};
 	
-	public void putOptions() {
+	public static void putOptions() {
 		String input;
 		boolean alive = (HEALTH > 0);
 		BATTLE: while(enemy.health > 0){
@@ -89,7 +89,7 @@ public class Battle {
 	} // end putOptions() //
 	
 	
-	public void attack() {
+	public static void attack() {
 		int ATTACK = 0;		
 		switch(CLASS){
 		case "BASTION":
@@ -110,7 +110,7 @@ public class Battle {
 		// enemyAttack();
 		}	
 
-	public int getDefence() {
+	public static int getDefence() {
 		int DEFENCE = 0;
 		switch(CLASS){
 		case "BASTION":
