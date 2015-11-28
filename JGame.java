@@ -8,41 +8,44 @@ public class JGame {
 		sect("Welcome to KUSHTOPIA, where danger and adventure lurk around every threshold.",
 				"Let's start by getting to know you a little better.");
 		User.Player.Init(); // All user info is now initialized and stored in enums/classes //
-		sleep(2500);
+		sleep(3000);
 		sect("AMAZING! We're done getting to know each other.",
 				"Now here are your general stats before we start telling your story.");
 		pl("\t\t**********************************\n");
 		User.putStats();
 		pl("\t\t**********************************\n\n");
-		sleep(3000);
+		sleep(4000);
 		sub("Now let's jump into the STORY, then. ");
 		boolean ready = false;
 		boolean running = true;
 		while(!ready){
-			p("\t Are you ready? >>> \t ? ");
+			pl("\t Are you ready? >>> \t ? ");
 			ready = TextIO.getlnBoolean();
-			if(!ready){
-				pl("Okie dokie; take your time, 'TRAVELLER'...");
-				sleep(2500);
+			while(!ready){
+				pl("Okie dokie; take your time, 'TRAVELLER'... \n");
+				sleep(3500);
+				p("Ready yet? >>> \t ?");
+				ready = TextIO.getlnBoolean();
 			}
 		}
 		
+		pl("\n");
 		sect("Many eons ago, the land that we know as KUSHTOPIA was as lush as could be.",
 				"From the multitude of plant and animal species to the crops and citizens, no other \n"
 				+ "\t\t > region could come close to providing the same quality of life...");
-		sleep(5000);
+		sleep(5700);
 		sub("When the KING was in good favors, all of his loyal constituents were blessed with his kindness.",
 				"The KING was generally a giving man, but he would be known to be selfish from time to time.",
 				"Of course, being the KING, his business was publicized far past the extent that he could comprehend.");
-		sleep(5000);
+		sleep(5700);
 		sect("One swarthy day, when the sky looked as though she were ready to release darkness itself, \n"
 				 + "\t\t > a band of guileful BASTION - one of the only known groups to date - razed the village \n"
 				 + "\t\t > in the dead of night.");
-		sleep(5000);
+		sleep(5700);
 		sub("...", "The group pillaged every house and store in the village surrounding the castle.",
 				"They made a quick pull through the village and a B-line toward the castle; where the king slept, \n"
 				+ " \t\t > unaware of the terror that had befell his beloved KINGDOM.");
-		sleep(5000);
+		sleep(5700);
 		
 		
 		/* GAME LOOP */

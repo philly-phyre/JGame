@@ -33,7 +33,7 @@ public class User {
 			} while(a);
 			Class.setClass();
 			sub("Your TITLE shall be 'TRAVELLER' at the beginning of your adventure...");
-			CLASS.desc = "'TRAVELLER'";
+			TITLE.desc = "'TRAVELLER'";
 			HEALTH = (int)((Math.random() * LEVEL + 15) + ((Math.random() * 80) - (Math.random() * 25)));
 			OHEALTH = HEALTH;
 		} // end Init() //

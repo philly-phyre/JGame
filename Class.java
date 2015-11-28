@@ -48,7 +48,7 @@ public enum Class {
 		} while (a); // end do/while //
 	} // end setClass() //
 	
-	 public static String getCls() {
+	 public static String returnCls() {
 		String b = User.Player.CLASS.desc;
 		for(Class c : Class.values()){
 			if(!b.equals(c.toString())){
