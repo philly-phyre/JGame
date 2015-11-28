@@ -28,7 +28,7 @@ public class JGame {
 		sect("Many eons ago, the land that we know as KUSHTOPIA was as lush as could be.",
 				"From the multitude of plant and life species to the crops and citizens, no other \n"
 				+ "\t\t > region could come close to providing the same quality of life...");
-		sub("When the KING was in good favors, all of his loyal (subjects)" /*change */ + " were blessed with his kindness.",
+		sub("When the KING was in good favors, all of his loyal constituents were blessed with his kindness.",
 				"The KING was generally a giving man, but he would be known to be selfish from time to time.",
 				"Of course, being the KING, his business was publicized far past the extent that he could comprehend.");
 		sect("One swarthy day, when the sky looked as though she were ready to release darkness itself, \n"
@@ -49,6 +49,18 @@ public class JGame {
 			
 		}
 		
+	}
+	
+	public static void lost(){
+		sect("It appears that you have lost your life in battle...",
+				"Your GUARDIAN takes your vulnerable body from the scene and partially revives you.",
+				"HEALTH:    " + (User.OHEALTH/2));
+		try{
+			Thread.sleep(3200);
+		} catch(InterruptedException e) {
+			Thread.currentThread().interrupt();
+		}
+		sub("Continue on your journey, but be wary of the dangers native to this land...");
 	}
 	
 	// TextIO shortened routines //

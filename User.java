@@ -2,6 +2,7 @@ public class User {
 	
 	static int LEVEL;
 	static int HEALTH;
+	static int OHEALTH;
 	
 	public enum Player {		
 		NAME(""), CLASS(""), TITLE("");
@@ -32,7 +33,8 @@ public class User {
 			} while(a);
 			Class.setClass();
 			sub("Your TITLE shall be 'TRAVELLER' at the beginning of your adventure...");
-			HEALTH = (int)((Math.random() * LEVEL + 15) + ((Math.random() * 80) * (Math.random() * 25)));;
+			HEALTH = (int)((Math.random() * LEVEL + 15) + ((Math.random() * 80) * (Math.random() * 25)));
+			OHEALTH = HEALTH;
 		} // end Init() //
 	} // end Player enum //
 	
