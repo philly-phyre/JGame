@@ -47,7 +47,7 @@ public class JGame {
 		
 		/* GAME LOOP */
 		
-		while(running){
+		GAME: while(running){
 			sub("What would you do, " + User.Player.TITLE.desc + "?", "FIGHT \t TRAVEL", "ITEMS \t STATS",
 					"SAVE \t QUIT");
 			p("\t\t");
@@ -83,6 +83,7 @@ public class JGame {
 				Quit();
 				break;
 			}
+			continue GAME;
 		} // end GAME loop //
 		Quit();
 	}// end main() //

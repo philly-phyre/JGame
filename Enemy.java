@@ -65,5 +65,4 @@ public enum Enemy {
 			"HEALTH: " + this.health);	
 	}
 
-	
 }
