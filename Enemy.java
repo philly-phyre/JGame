@@ -8,10 +8,10 @@ public enum Enemy {
 	
 	private String desc;
 	private int expType;
-	private int level;
-	private int exp;
-	private int health;
-	private String name;
+	public int level;
+	public int exp;
+	public int health;
+	public String name;
 	
 	Enemy(String desc, int expType) {
 		this.desc = desc;
