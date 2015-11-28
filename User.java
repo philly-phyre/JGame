@@ -33,14 +33,15 @@ public class User {
 			} while(a);
 			Class.setClass();
 			sub("Your TITLE shall be 'TRAVELLER' at the beginning of your adventure...");
-			HEALTH = (int)((Math.random() * LEVEL + 15) + ((Math.random() * 80) * (Math.random() * 25)));
+			CLASS.desc = "'TRAVELLER'";
+			HEALTH = (int)((Math.random() * LEVEL + 15) + ((Math.random() * 80) - (Math.random() * 25)));
 			OHEALTH = HEALTH;
 		} // end Init() //
 	} // end Player enum //
 	
 	public static void putStats() {
 		sub("NAME:     " + Player.NAME.desc, "CLASS:    " + Player.CLASS.desc, "TITLE:    " + Player.TITLE.desc,
-				" ", "LEVEL:    " + LEVEL, "HEALTH:   "+ HEALTH);
+				" ", "LEVEL:    " + LEVEL, "HEALTH:   " + HEALTH);
 	}
 	
 	
