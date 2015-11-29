@@ -1,7 +1,10 @@
+import java.util.Arrays;
+import java.util.List;
+
 public class Battle {
 	
 	static Enemy enemy;
-	static User.Player TITLE = User.Player.TITLE;
+	static String TITLE = User.Player.TITLE.desc;
 	static String CLASS = User.Player.CLASS.desc;
 	static int LEVEL = User.LEVEL;
 	static int HEALTH = User.HEALTH;
@@ -26,20 +29,17 @@ public class Battle {
 		
 	} // end battle(); //
 	
-	
-	public static String options[] = {"ATTACK", "DEFEND", "ITEMS", "FLEE"};
+	public static List<String> options = Arrays.asList("ATTACK", "DEFEND", "ITEMS", "FLEE");
 	
 	public static void putOptions() {
 		String input;
 		boolean alive = (HEALTH > 0);
-		BATTLE: while(enemy.health > 0){
+		BATTLE: while(enemy.health >= 1){
 			do {
-				sub(options[0] + "\t" + options[1], options[2] + "\t" + options[3]);
-				pl("");
+				sub("ATTACK \t DEFEND", "ITEMS \t FLEE"); 
 				pl("\t What shall you do?! \n");
-				input = TextIO.getlnWord();
-				for(String x : options){
-					if(x.equals(input)){
+				input = TextIO.getlnWord().toUpperCase();
+				if(options.contains((input))){
 					switch(input){
 					case "ATTACK":
 						if(CLASS.equals("SCORCHER") || CLASS.equals("VOIDED")){
@@ -52,6 +52,10 @@ public class Battle {
 							}
 						} else {
 							attack();
+						}
+						if(enemy.health >= 0){
+							pl("\t You have defeated the " + enemy + ", " + TITLE + "!");
+							break BATTLE;
 						}
 						break;
 					case "DEFEND":
@@ -67,14 +71,13 @@ public class Battle {
 							sub("There is no escape this round...");
 						} else {
 							sub("You have successfully escaped from the " + enemy + ", " + TITLE);
-							enemy.health = 0;
+							break BATTLE;
 						}
 					} // end switch(input) //	
-					} else if(!(x.equals(input))) {
+					} else if(!(options.contains(input))) {
 						pl("\t Please choose a valid option!");
-						input = TextIO.getlnWord();
+						input = TextIO.getlnWord().toUpperCase();
 					}
-				} // end for:each //
 				} while(alive); // !alive //
 				sub("You have no HEALTH left...", "The will to fight has left you...","");
 				try {
