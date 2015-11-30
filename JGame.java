@@ -39,7 +39,11 @@ public class JGame {
 				+ " \t\t > unaware of the terror that had befell his beloved KINGDOM.");
 		
 		
+<<<<<<< HEAD
 		Class.getCls();
+=======
+		
+>>>>>>> 67f13360f90d24566fd12bcf70580d1c6a24175a
 		
 		
 		/* GAME LOOP */

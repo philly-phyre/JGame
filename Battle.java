@@ -1,7 +1,11 @@
 public class Battle {
 	
 	Enemy enemy;
+<<<<<<< HEAD
 	User.Player TITLE = User.Player.TITLE;
+=======
+	User.Player title = User.Player.TITLE;
+>>>>>>> 67f13360f90d24566fd12bcf70580d1c6a24175a
 	
 	void pickEnemy() {
 		int x = (int)(Math.random() * 7);
@@ -10,6 +14,7 @@ public class Battle {
 
 	void battle() {
 		pickEnemy();
+<<<<<<< HEAD
 		sect("You are under attack, " + TITLE);
 		enemy.putStats();
 		
@@ -23,6 +28,12 @@ public class Battle {
 		
 	}
 	
+=======
+		sect("You are under attack, " + title);
+		enemy.putStats();
+	} // end battle(); //
+	
+>>>>>>> 67f13360f90d24566fd12bcf70580d1c6a24175a
 		
 	
 	public static void pl(String x) {
@@ -56,4 +67,8 @@ public class Battle {
 			Thread.currentThread().interrupt();
 		}
 	} // end sleep() //
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 67f13360f90d24566fd12bcf70580d1c6a24175a

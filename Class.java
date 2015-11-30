@@ -33,9 +33,15 @@ public enum Class {
 		String input;
 		boolean a = true;
 		do {
+<<<<<<< HEAD
 			TextIO.putln("\t >>> Which CLASS do you embody?:    \n");
 			TextIO.putln("\t > > ???");
 			TextIO.put("\t \t");
+=======
+			TextIO.putln("\t\t >>> Which CLASS do you embody?:    \n");
+			TextIO.putln("\t > > ???");
+			TextIO.put("\t \t \t \t");
+>>>>>>> 67f13360f90d24566fd12bcf70580d1c6a24175a
 			input = TextIO.getlnWord().toUpperCase();
 			if(Class.contains(input)) {
 				User.Player.CLASS.desc = input;
@@ -48,6 +54,7 @@ public enum Class {
 		} while (a); // end do/while //
 	} // end setClass() //
 	
+<<<<<<< HEAD
 	 public static String getCls() {
 		String b = User.Player.CLASS.desc;
 		for(Class c : Class.values()){
@@ -58,6 +65,8 @@ public enum Class {
 			return b;	
 	}
 	
+=======
+>>>>>>> 67f13360f90d24566fd12bcf70580d1c6a24175a
 	static boolean contains(String x) {
 		for(Class c : Class.values()) {
 			if(x.equals(c.toString()))

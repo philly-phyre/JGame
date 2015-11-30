@@ -1,9 +1,12 @@
 public class User {
 	
+<<<<<<< HEAD
 	static int LEVEL = 0;
 	
 	final static int ATTACK = (int)(Math.random() * LEVEL + (Math.random() * 11));
 		
+=======
+>>>>>>> 67f13360f90d24566fd12bcf70580d1c6a24175a
 	public enum Player {
 		NAME(""), CLASS(""), TITLE("");
 		
@@ -37,8 +40,12 @@ public class User {
 	} // end Player enum //
 	
 	public static void putStats() {
+<<<<<<< HEAD
 		sub("NAME:     " + Player.NAME.desc, "CLASS:    " + Player.CLASS.desc, "TITLE:    " + Player.TITLE.desc,
 				" ", "LEVEL:    " + LEVEL);
+=======
+		sub("NAME:     " + Player.NAME.desc, "CLASS:    " + Player.CLASS.desc, "TITLE:    " + Player.TITLE.desc);
+>>>>>>> 67f13360f90d24566fd12bcf70580d1c6a24175a
 	}
 	
 	
