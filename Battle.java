@@ -10,6 +10,7 @@ public class Battle {
 	static int HEALTH = User.HEALTH;
 	static int attack;
 	static int defence;
+	static int dmg;
 	
 	static void pickEnemy() {
 		int x = (int)(Math.random() * 7);
@@ -53,6 +54,7 @@ public class Battle {
 						} else {
 							attack();
 						}
+						HEALTH -= fightBack();
 						if(enemy.health <= 0){
 							pl("\t You have defeated the " + enemy + ", " + TITLE + "!");
 							break BATTLE;
@@ -61,6 +63,15 @@ public class Battle {
 					case "DEFEND":
 						pl("\t You ready your guard! \n");
 						defence = getDefence();
+						dmg = fightBack();
+						defence -= dmg;
+						pl("\t The " + enemy + " fights back and ATTACKS you for " + dmg + " HEALTH this round.");
+						if(defence < 0){
+							HEALTH += defence;
+							pl("\t You've lost " + Math.abs(defence) + " HEALTH!!");
+						} else {
+							pl("\t You've successfully DEFENDED against the ATTACK of foe " + enemy + "!");
+						}
 						break;
 					case "ITEMS":
 						
@@ -68,19 +79,24 @@ public class Battle {
 					case "FLEE":
 						int esc = (int)(Math.random() * 5);
 						if(esc < 1){
-							sub("There is no escape this round...");
+							dmg = fightBack();
+							HEALTH -= dmg;
+							sub("There is no escape this round...", "The " + enemy + " has ATTACKED you for " + dmg + "HEALTH!");
+							sleep(2900);
 						} else {
 							sub("You have successfully escaped from the " + enemy + ", " + TITLE);
+							sleep(2900);
 							break BATTLE;
 						}
-					} // end switch(input) //	
+					} // end switch(input) //
+					pl("\t You've " + HEALTH + " left.");
 					} else if(!(options.contains(input))) {
 						pl("\t Please choose a valid option!");
 						input = TextIO.getlnWord().toUpperCase();
 					}
 				} while(alive); // end do/while(alive) //
 				sub("You have no HEALTH left...", "The will to fight has left you...","");
-				sleep(2500);
+				sleep(2900);
 				JGame.lost();
 				break BATTLE;
 		} // end while(enemy.health > 0); enemy has been defeated at this point //
@@ -128,6 +144,10 @@ public class Battle {
 			DEFENCE = (int)((Math.random() * LEVEL + 1) + (Math.random() * enemy.level + 4));
 			}
 		return DEFENCE;
+	}
+	
+	public static int fightBack() {
+		return (int)((Math.random() * enemy.level) + (Math.random() * enemy.level + 1));
 	}
 		
 	

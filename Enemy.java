@@ -29,6 +29,8 @@ public enum Enemy {
 		TextIO.putln(" > > ************************************************** < < \n");
 	}
 	
+	
+	
 	int setExp(){
 		int x = this.expType;
 		int y = 0;
