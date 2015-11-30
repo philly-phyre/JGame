@@ -47,7 +47,17 @@ public class JGame {
 		sub("...", "The group pillaged every house and store in the village surrounding the castle.",
 				"They made a quick pull through the village and a B-line toward the castle; where the king slept, \n"
 				+ " \t\t > unaware of the terror that had befell his beloved KINGDOM.");
+<<<<<<< HEAD
+		
+		
+<<<<<<< HEAD
+		Class.getCls();
+=======
+		
+>>>>>>> 67f13360f90d24566fd12bcf70580d1c6a24175a
+=======
 		sleep(5700);
+>>>>>>> fc451edfaaf0ace92c229745343a9cc62173f599
 		
 		
 		/* GAME LOOP */

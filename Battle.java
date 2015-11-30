@@ -3,6 +3,14 @@ import java.util.List;
 
 public class Battle {
 	
+<<<<<<< HEAD
+	Enemy enemy;
+<<<<<<< HEAD
+	User.Player TITLE = User.Player.TITLE;
+=======
+	User.Player title = User.Player.TITLE;
+>>>>>>> 67f13360f90d24566fd12bcf70580d1c6a24175a
+=======
 	static Enemy enemy;
 	static String TITLE = User.Player.TITLE.desc;
 	static String CLASS = User.Player.CLASS.desc;
@@ -10,6 +18,7 @@ public class Battle {
 	static int HEALTH = User.HEALTH;
 	static int attack;
 	static int defence;
+>>>>>>> fc451edfaaf0ace92c229745343a9cc62173f599
 	
 	static void pickEnemy() {
 		int x = (int)(Math.random() * 7);
@@ -18,6 +27,7 @@ public class Battle {
 
 	static void battle() {
 		pickEnemy();
+<<<<<<< HEAD
 		sect("You are under attack, " + TITLE);
 		enemy.putStats();
 		try {
@@ -93,6 +103,14 @@ public class Battle {
 	} // end putOptions() //
 	
 	
+<<<<<<< HEAD
+=======
+		sect("You are under attack, " + title);
+		enemy.putStats();
+	} // end battle(); //
+	
+>>>>>>> 67f13360f90d24566fd12bcf70580d1c6a24175a
+=======
 	public static void attack() {
 		int ATTACK = 0;		
 		switch(CLASS){
@@ -130,6 +148,7 @@ public class Battle {
 			}
 		return DEFENCE;
 	}
+>>>>>>> fc451edfaaf0ace92c229745343a9cc62173f599
 		
 	
 	public static void pl(String x) {
@@ -163,6 +182,13 @@ public class Battle {
 			Thread.currentThread().interrupt();
 		}
 	} // end sleep() //
+<<<<<<< HEAD
+<<<<<<< HEAD
+}
+=======
+}
+>>>>>>> 67f13360f90d24566fd12bcf70580d1c6a24175a
+=======
 	
 	static boolean contains(String x) {
 		for(Class c : Class.values()) {
@@ -173,3 +199,4 @@ public class Battle {
 	} // end contains() //
 	
 }
+>>>>>>> fc451edfaaf0ace92c229745343a9cc62173f599
