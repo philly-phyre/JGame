@@ -49,6 +49,7 @@ public class JGame {
 				+ " \t\t > unaware of the terror that had befell his beloved KINGDOM.");
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 		
 		
 <<<<<<< HEAD
@@ -59,6 +60,9 @@ public class JGame {
 =======
 		sleep(5700);
 >>>>>>> fc451edfaaf0ace92c229745343a9cc62173f599
+=======
+		sleep(700);
+>>>>>>> parent of fc451ed... Update 18: Basic game functional!
 =======
 		sleep(700);
 >>>>>>> parent of fc451ed... Update 18: Basic game functional!
