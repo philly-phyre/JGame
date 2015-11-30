@@ -35,19 +35,19 @@ public class JGame {
 		sect("Many eons ago, the land that we know as KUSHTOPIA was as lush as could be.",
 				"From the multitude of plant and animal species to the crops and citizens, no other \n"
 				+ "\t\t > region could come close to providing the same quality of life...");
-		sleep(700);
+		sleep(5700);
 		sub("When the KING was in good favors, all of his loyal constituents were blessed with his kindness.",
 				"The KING was generally a giving man, but he would be known to be selfish from time to time.",
 				"Of course, being the KING, his business was publicized far past the extent that he could comprehend.");
-		sleep(500);
+		sleep(5700);
 		sect("One swarthy day, when the sky looked as though she were ready to release darkness itself, \n"
 				 + "\t\t > a band of guileful BASTION - one of the only known groups to date - razed the village \n"
 				 + "\t\t > in the dead of night.");
-		sleep(700);
+		sleep(5700);
 		sub("...", "The group pillaged every house and store in the village surrounding the castle.",
 				"They made a quick pull through the village and a B-line toward the castle; where the king slept, \n"
 				+ " \t\t > unaware of the terror that had befell his beloved KINGDOM.");
-		sleep(700);
+		sleep(5700);
 		
 		
 		/* GAME LOOP */

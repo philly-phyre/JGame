@@ -54,7 +54,7 @@ public class User {
 	} // end p() //
 	
 	public static void sub(String...str) {
-		pl("\t\t**********************************\n");
+		pl("\t**********************************\n");
 		for(String x : str) {
 			pl("\t" + x + "\n");
 		}
