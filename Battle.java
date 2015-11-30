@@ -35,6 +35,7 @@ public class Battle {
 	public static void putOptions() {
 		String input;
 		boolean alive = (HEALTH > 0);
+		boolean won = false;
 		BATTLE: while(enemy.health >= 1){
 			do {
 				sub("ATTACK \t DEFEND", "ITEMS \t FLEE"); 
@@ -48,15 +49,22 @@ public class Battle {
 							input = TextIO.getlnWord().toUpperCase();
 							if(input.equals("ATTACK")){
 								attack();
+								dmg = fightBack();
+								HEALTH -= dmg;
+								pl("\t The " + enemy + " fights back and ATTACKS you for " + dmg + " HEALTH this round.");
 							} else {
 								// magicOptions();
 							}
 						} else {
 							attack();
+							dmg = fightBack();
+							HEALTH -= dmg;
+							pl("\t The " + enemy + " fights back and ATTACKS you for " + dmg + " HEALTH this round.");
 						}
 						HEALTH -= fightBack();
 						if(enemy.health <= 0){
 							pl("\t You have defeated the " + enemy + ", " + TITLE + "!");
+							won = true;
 							break BATTLE;
 						}
 						break;
@@ -86,6 +94,7 @@ public class Battle {
 						} else {
 							sub("You have successfully escaped from the " + enemy + ", " + TITLE);
 							sleep(2900);
+							won = false;
 							break BATTLE;
 						}
 					} // end switch(input) //
@@ -101,8 +110,13 @@ public class Battle {
 				JGame.lost();
 				break;
 		} // end while(enemy.health > 0); enemy has been defeated at this point //
-		User.cEXP += enemy.exp;
-		User.checkEXP();
+		if(won){
+			User.cEXP += enemy.exp;
+			User.checkEXP();
+		} else {
+			;
+		}
+		
 	} // end putOptions() //
 	
 	
