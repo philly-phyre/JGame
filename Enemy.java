@@ -17,7 +17,7 @@ public enum Enemy {
 		this.desc = desc;
 		this.expType = expType;
 		this.level = (int)(User.LEVEL * Math.random()) + (int)(Math.random() * 4);
-		this.exp = this.setExp();
+		this.exp = setExp();
 		this.health = (int)(level * (Math.random() * 15) + 7);
 		this.name = this.toString();
 	}
@@ -36,13 +36,13 @@ public enum Enemy {
 		int y = 0;
 		switch(x){
 		case 0:
-			y = (int) (this.level * Math.random() + 2);
+			y = (int) (this.level * Math.random() + 17);
 		case 1:
-			y = (int) (this.level * Math.random() + 5);
+			y = (int) (this.level * Math.random() + 25);
 		case 2:
-			y = (int) (this.level * Math.random() + 11);
+			y = (int) (this.level * Math.random() + 37);
 		case 3:
-			y = (int) (this.level * Math.random() + 18);
+			y = (int) (this.level * Math.random() + 55);
 		}
 		return y;
 	}

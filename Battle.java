@@ -90,6 +90,7 @@ public class Battle {
 						}
 					} // end switch(input) //
 					pl("\t You've " + HEALTH + " left.");
+					sleep(2000);
 					} else if(!(options.contains(input))) {
 						pl("\t Please choose a valid option!");
 						input = TextIO.getlnWord().toUpperCase();
@@ -98,8 +99,10 @@ public class Battle {
 				sub("You have no HEALTH left...", "The will to fight has left you...","");
 				sleep(2900);
 				JGame.lost();
-				break BATTLE;
+				break;
 		} // end while(enemy.health > 0); enemy has been defeated at this point //
+		User.cEXP += enemy.exp;
+		User.checkEXP();
 	} // end putOptions() //
 	
 	
