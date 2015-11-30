@@ -31,14 +31,8 @@ library, it is 33 GB of books library related to everything Computer Science, fr
 
 
 
-
-
-Guarantees:
-
-    efficiency is important to me...
-
-    a visible interest in the client and the job...
-
-    frequent site maintenance and expansion...
-
-    professional relationship with a real person...
+https://github.com/philly-phyre/changeCount
+https://github.com/philly-phyre/randoMosaic
+https://github.com/philly-phyre/MosaicFun
+https://github.com/philly-phyre/randoMosaic2
+https://github.com/philly-phyre/consoleCalc
