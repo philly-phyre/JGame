@@ -103,8 +103,13 @@ public class Battle {
 			}
 		ATTACK -= ((enemy.level * Math.random()) + (Math.random() * 4));
 		enemy.health -= ATTACK;
+		if(enemy.health > 0){
 		sub("You attacked the " + enemy + " for " + ATTACK + " damage!",
-				"The" + enemy + " has " + enemy.health + " left.");
+				"The " + enemy + " has " + enemy.health + " health left.");
+		} else if(enemy.health <= 0) {
+			sub("You attacked the " + enemy + " for " + ATTACK + " damage!",
+					"The " + enemy + " has no health left!");
+		}
 		// enemyAttack();
 		}	
 
