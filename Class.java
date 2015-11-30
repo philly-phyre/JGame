@@ -28,6 +28,11 @@ public enum Class {
 							"\n\t >> " + c.desc.substring(45,94) + "\n" + " \t >> " + c.desc.substring(94,139) + "\n"
 							+ "\t >> " + c.desc.substring(139));
 			TextIO.putln("\t\t**********************************\n");
+			try {
+				Thread.sleep(3700);
+			} catch(InterruptedException e) {
+				Thread.currentThread().interrupt();
+			}
 		} // end for each //
 		
 		String input;

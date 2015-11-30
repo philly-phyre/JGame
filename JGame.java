@@ -1,7 +1,9 @@
+import java.util.Arrays;
+import java.util.List;
 
 public class JGame {
 	
-	public static String[] options = {"FIGHT","TRAVEL","ITEMS","STATS","SAVE","QUIT"};
+	public static List<String> options = Arrays.asList("FIGHT","TRAVEL","ITEMS","STATS","SAVE","QUIT");
 	
 	public static void main(String[] args) {
 		
@@ -54,34 +56,32 @@ public class JGame {
 			sub("What would you do, " + User.Player.TITLE.desc + "?", "FIGHT \t TRAVEL", "ITEMS \t STATS",
 					"SAVE \t QUIT");
 			String input = TextIO.getlnWord().toUpperCase();
-			for(String x : options){
-				if(input.equals(x)){
-					switch(input){
-					case "FIGHT":
-						Battle.battle();
-						break;
-					case "STATS":
-						User.putStats();
-						break;
-					case "QUIT":
-						sect("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
-							"############################################",
-							"THANK YOU FOR CHOOSING KUSHTOPIA BY TEMPEST DESIGN STUDIOS 2015",
-							"############################################",
-							"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-						sleep(3000);
-							sub("Please play this game as often as you would like!!",
-							"The source code can be found online at 'https://github.com/philly-phyre/KUSHTOPIA.git' .",
-							"Also feel free to take a look at it whenever and contact me about changes/commits or ideas!!",
-							"");
-						Quit();
-						break;
-					}
-				} else if(!(input.equals(x))) {
-					pl("Please enter a valid option!");
-					input = TextIO.getlnWord();
-				} // end if/else //
-			} // end for:each //
+			if(options.contains(input)){
+				switch(input){
+				case "FIGHT":
+					Battle.battle();
+					break;
+				case "STATS":
+					User.putStats();
+					break;
+				case "QUIT":
+					sect("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
+						"############################################",
+						"THANK YOU FOR CHOOSING KUSHTOPIA BY TEMPEST DESIGN STUDIOS 2015",
+						"############################################",
+						"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+					sleep(3000);
+						sub("Please play this game as often as you would like!!",
+						"The source code can be found online at 'https://github.com/philly-phyre/KUSHTOPIA.git' .",
+						"Also feel free to take a look at it whenever and contact me about changes/commits or ideas!!",
+						"");
+					Quit();
+					break;
+				}
+			} else if(!(options.contains(input))) {
+				pl("Please enter a valid option!");
+				sleep(2500);
+			} // end if/else //
 			continue GAME;
 		} // end GAME loop //
 		Quit();

@@ -44,7 +44,7 @@ public class Battle {
 					case "ATTACK":
 						if(CLASS.equals("SCORCHER") || CLASS.equals("VOIDED")){
 							pl("\t ATTACK \n \t MAGIC");
-							input = TextIO.getlnWord();
+							input = TextIO.getlnWord().toUpperCase();
 							if(input.equals("ATTACK")){
 								attack();
 							} else {
@@ -53,7 +53,7 @@ public class Battle {
 						} else {
 							attack();
 						}
-						if(enemy.health >= 0){
+						if(enemy.health <= 0){
 							pl("\t You have defeated the " + enemy + ", " + TITLE + "!");
 							break BATTLE;
 						}
