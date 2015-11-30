@@ -65,7 +65,6 @@ public class Battle {
 						}
 						if(enemy.health <= 0){
 							pl("\t You have defeated the " + enemy + ", " + TITLE + "!");
-							sleep(3000);
 							break BATTLE;
 						}
 						break;
@@ -82,9 +81,8 @@ public class Battle {
 							sub("There is no escape this round...");
 						} else {
 							sub("You have successfully escaped from the " + enemy + ", " + TITLE);
-							sleep(3000);
 							break BATTLE;
-						} // lol/
+						}
 					} // end switch(input) //	
 					} else if(!(options.contains(input))) {
 						pl("\t Please choose a valid option!");
