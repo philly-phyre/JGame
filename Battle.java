@@ -78,15 +78,11 @@ public class Battle {
 						pl("\t Please choose a valid option!");
 						input = TextIO.getlnWord().toUpperCase();
 					}
-				} while(alive); // !alive //
+				} while(alive); // end do/while(alive) //
 				sub("You have no HEALTH left...", "The will to fight has left you...","");
-				try {
-					Thread.sleep(2500);
-				} catch(InterruptedException e){
-					Thread.currentThread().interrupt();
+				sleep(2500);
 				JGame.lost();
 				break BATTLE;
-			} // do while(alive) //
 		} // end while(enemy.health > 0); enemy has been defeated at this point //
 	} // end putOptions() //
 	
