@@ -103,7 +103,7 @@ public class Battle {
 			sub("You have no HEALTH left...", "The will to fight has left you...","");
 			sleep(2900);
 			JGame.lost();
-		}else if(won){
+		} else if(won){
 		User.cEXP += enemy.exp;
 		User.checkEXP();
 		} else {
