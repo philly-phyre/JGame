@@ -31,16 +31,7 @@ public class JGame {
 			}
 		}
 		
-		pl("\t . . . . .");
-		sleep(1100); //eclipse acting weird on my new computer >_>
-		pl("\t . . . .");
-		sleep(1100);
-		pl("\t . . .");
-		sleep(1100);
-		pl("\t . .");
-		sleep(1100);
-		pl("\t ! \n");
-		sleep(1200);
+		pl("\n");
 		sect("Many eons ago, the land that we know as KUSHTOPIA was as lush as could be.",
 				"From the multitude of plant and animal species to the crops and citizens, no other \n"
 				+ "\t\t > region could come close to providing the same quality of life...");
@@ -86,9 +77,6 @@ public class JGame {
 						"");
 					Quit();
 					break;
-				default:
-					sub("Oops! Try again!");
-					input = TextIO.getlnWord().toUpperCase();
 				}
 			} else if(!(options.contains(input))) {
 				pl("Please enter a valid option!");

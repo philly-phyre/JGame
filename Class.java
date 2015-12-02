@@ -23,13 +23,6 @@ public enum Class {
 	
 	static void setClass() {
 		for(Class c : Class.values()) {
-			TextIO.putln("\n");
-			TextIO.putln("***** >>> Here is a basic description of the available CLASSES.");
-			try {
-				Thread.sleep(2750); 
-			} catch(InterruptedException e) {
-				Thread.currentThread().interrupt();
-			}
 			TextIO.putln("\t\t**********************************\n");
 			TextIO.putln(" >> >> " + c + ":\n\n" + "\t >> " + c.desc.substring(0,45) +
 							"\n\t >> " + c.desc.substring(45,94) + "\n" + " \t >> " + c.desc.substring(94,139) + "\n"
