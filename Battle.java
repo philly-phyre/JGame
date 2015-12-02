@@ -21,11 +21,7 @@ public class Battle {
 		pickEnemy();
 		sect("You are under attack, " + TITLE);
 		enemy.putStats();
-		try {
-			Thread.sleep(2500);
-		} catch (InterruptedException e) {
-			Thread.currentThread().interrupt();
-		}
+		sleep(2500);
 		putOptions();
 		
 	} // end battle(); //
@@ -37,7 +33,7 @@ public class Battle {
 		boolean alive = (HEALTH > 0);
 		boolean won = false;
 		BATTLE:	do {
-			sub(">ATTACK \t >DEFEND", ">ITEMS \t >FLEE"); 
+			sub(">ATTACK >DEFEND", ">ITEMS \t >FLEE"); 
 			pl("\t What shall you do?! \n");
 			input = TextIO.getlnWord().toUpperCase();
 			if(options.contains((input))){
@@ -103,12 +99,13 @@ public class Battle {
 					input = TextIO.getlnWord().toUpperCase();
 				}
 			} while(alive); // end do/while(alive) //
+		if(!alive){
 			sub("You have no HEALTH left...", "The will to fight has left you...","");
 			sleep(2900);
 			JGame.lost();
-		if(won){
-			User.cEXP += enemy.exp;
-			User.checkEXP();
+		}else if(won){
+		User.cEXP += enemy.exp;
+		User.checkEXP();
 		} else {
 			;
 		}

@@ -67,11 +67,12 @@ public class User {
 			cEXP = 0;
 			EXP = setEXP();
 			sub("CONGRATULATIONS!!! You have gained a LEVEL, " + Player.TITLE.desc + "!");
-			JGame.sleep(3300);
 			putStats();
+			JGame.sleep(3300);
 		} else{
 			sub("You have gained " + Battle.enemy.exp + "EXP for being victorious!");
 			User.putStats();
+			JGame.sleep(3300);
 		}
 	}
 	

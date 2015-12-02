@@ -22,30 +22,17 @@ public enum Class {
 	}
 	
 	static void setClass() {
+		TextIO.putln("\n\n\t > > > > > > > > > > > > > > > > > > > > > \n");
+		TextIO.putln("Here are some brief descriptions of the available CLASSES.");
+		TextIO.putln("\n\n\t > > > > > > > > > > > > > > > > > > > > > \n");
+		JGame.sleep(2600);
 		for(Class c : Class.values()) {
-			try {
-				Thread.sleep(2600);
-			}
-				catch(InterruptedException e){
-					Thread.currentThread().interrupt();
-			}
-			TextIO.putln("Here are some brief descriptions of the available CLASSES.");
-			try {
-				Thread.sleep(2600);
-			}
-				catch(InterruptedException e){
-					Thread.currentThread().interrupt();
-			}
 			TextIO.putln("\t\t**********************************\n");
 			TextIO.putln(" >> >> " + c + ":\n\n" + "\t >> " + c.desc.substring(0,45) +
 							"\n\t >> " + c.desc.substring(45,94) + "\n" + " \t >> " + c.desc.substring(94,139) + "\n"
 							+ "\t >> " + c.desc.substring(139));
 			TextIO.putln("\t\t**********************************\n");
-			try {
-				Thread.sleep(4000);
-			} catch(InterruptedException e) {
-				Thread.currentThread().interrupt();
-			}
+			JGame.sleep(4000);
 		} // end for each //
 		
 		String input;
