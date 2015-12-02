@@ -36,80 +36,76 @@ public class Battle {
 		String input;
 		boolean alive = (HEALTH > 0);
 		boolean won = false;
-		BATTLE: while(enemy.health >= 1){
-			do {
-				sub("ATTACK \t DEFEND", "ITEMS \t FLEE"); 
-				pl("\t What shall you do?! \n");
-				input = TextIO.getlnWord().toUpperCase();
-				if(options.contains((input))){
-					switch(input){
-					case "ATTACK":
-						if(CLASS.equals("SCORCHER") || CLASS.equals("VOIDED")){
-							pl("\t ATTACK \n \t MAGIC");
-							input = TextIO.getlnWord().toUpperCase();
-							if(input.equals("ATTACK")){
-								attack();
-								dmg = fightBack();
-								HEALTH -= dmg;
-								pl("\t The " + enemy + " fights back and ATTACKS you for " + dmg + " HEALTH this round.");
-							} else {
-								// magicOptions();
-							}
-						} else {
+		BATTLE:	do {
+			sub(">ATTACK \t >DEFEND", ">ITEMS \t >FLEE"); 
+			pl("\t What shall you do?! \n");
+			input = TextIO.getlnWord().toUpperCase();
+			if(options.contains((input))){
+				switch(input){
+				case "ATTACK":
+					if(CLASS.equals("SCORCHER") || CLASS.equals("VOIDED")){
+						pl("\t >ATTACK \t >\t MAGIC");
+						input = TextIO.getlnWord().toUpperCase();
+						if(input.equals("ATTACK")){
 							attack();
 							dmg = fightBack();
 							HEALTH -= dmg;
 							pl("\t The " + enemy + " fights back and ATTACKS you for " + dmg + " HEALTH this round.");
+						} else {
+							// magicOptions();
 						}
-						HEALTH -= fightBack();
-						if(enemy.health <= 0){
-							pl("\t You have defeated the " + enemy + ", " + TITLE + "!");
-							won = true;
-							break BATTLE;
-						}
-						break;
-					case "DEFEND":
-						pl("\t You ready your guard! \n");
-						defence = getDefence();
+					} else {
+						attack();
 						dmg = fightBack();
-						defence -= dmg;
+						HEALTH -= dmg;
 						pl("\t The " + enemy + " fights back and ATTACKS you for " + dmg + " HEALTH this round.");
-						if(defence < 0){
-							HEALTH += defence;
-							pl("\t You've lost " + Math.abs(defence) + " HEALTH!!");
-						} else {
-							pl("\t You've successfully DEFENDED against the ATTACK of foe " + enemy + "!");
-						}
-						break;
-					case "ITEMS":
-						
-						break;
-					case "FLEE":
-						int esc = (int)(Math.random() * 5);
-						if(esc < 1){
-							dmg = fightBack();
-							HEALTH -= dmg;
-							sub("There is no escape this round...", "The " + enemy + " has ATTACKED you for " + dmg + "HEALTH!");
-							sleep(2900);
-						} else {
-							sub("You have successfully escaped from the " + enemy + ", " + TITLE);
-							sleep(2900);
-							won = false;
-							break BATTLE;
-						}
-					} // end switch(input) //
-					pl("\t You've " + HEALTH + " left.");
-					sleep(2000);
-					} else if(!(options.contains(input))) {
-						pl("\t Please choose a valid option!");
-						input = TextIO.getlnWord().toUpperCase();
 					}
-				} while(alive); // end do/while(alive) //
-				sub("You have no HEALTH left...", "The will to fight has left you...","");
-				sleep(2900);
-				JGame.lost();
-				break;
-		} // end while(enemy.health > 0); enemy has been defeated at this point //
+					if(enemy.health <= 0){
+						pl("\t You have defeated the " + enemy + ", " + TITLE + "!");
+						won = true;
+						break BATTLE;
+					}
+					break;
+				case "DEFEND":
+					pl("\t You ready your guard! \n");
+					defence = getDefence();
+					dmg = fightBack();
+					defence -= dmg;
+					pl("\t The " + enemy + " fights back and ATTACKS you for " + dmg + " HEALTH this round.");
+					if(defence < 0){
+						HEALTH += defence;
+						pl("\t You've lost " + Math.abs(defence) + " HEALTH!!");
+					} else {
+						pl("\t You've successfully DEFENDED against the ATTACK of foe " + enemy + "!");
+					}
+					break;
+				case "ITEMS":
+					
+					break;
+				case "FLEE":
+					int esc = (int)(Math.random() * 5);
+					if(esc < 1){
+						dmg = fightBack();
+						HEALTH -= dmg;
+						sub("There is no escape this round...", "The " + enemy + " has ATTACKED you for " + dmg + "HEALTH!");
+						sleep(2900);
+					} else {
+						sub("You have successfully escaped from the " + enemy + ", " + TITLE);
+						sleep(2900);
+						won = false;
+						break BATTLE;
+					}
+				} // end switch(input) //
+				pl("\t You've " + HEALTH + " left.");
+				sleep(2000);
+				} else if(!(options.contains(input))) {
+					pl("\t Please choose a valid option!");
+					input = TextIO.getlnWord().toUpperCase();
+				}
+			} while(alive); // end do/while(alive) //
+			sub("You have no HEALTH left...", "The will to fight has left you...","");
+			sleep(2900);
+			JGame.lost();
 		if(won){
 			User.cEXP += enemy.exp;
 			User.checkEXP();

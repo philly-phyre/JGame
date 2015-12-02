@@ -70,7 +70,8 @@ public class User {
 			JGame.sleep(3300);
 			putStats();
 		} else{
-			;
+			sub("You have gained " + Battle.enemy.exp + "EXP for being victorious!");
+			User.putStats();
 		}
 	}
 	
