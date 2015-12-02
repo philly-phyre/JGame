@@ -31,7 +31,16 @@ public class JGame {
 			}
 		}
 		
-		pl("\n");
+		pl("\t . . . . .");
+		sleep(1100);
+		pl("\t . . . .");
+		sleep(1100);
+		pl("\t . . .");
+		sleep(1100);
+		pl("\t . .");
+		sleep(1100);
+		pl("\t !");
+		sleep(1700);
 		sect("Many eons ago, the land that we know as KUSHTOPIA was as lush as could be.",
 				"From the multitude of plant and animal species to the crops and citizens, no other \n"
 				+ "\t\t > region could come close to providing the same quality of life...");
@@ -77,6 +86,8 @@ public class JGame {
 						"");
 					Quit();
 					break;
+				default:
+					sub("Oops; try again, " + User.Player.TITLE.desc);
 				}
 			} else if(!(options.contains(input))) {
 				pl("Please enter a valid option!");
