@@ -56,7 +56,7 @@ public class JGame {
 		sub("...", "The group pillaged every house and store in the village surrounding the castle.",
 				"They made a quick pull through the village and a B-line toward the castle; where the king slept, \n"
 				+ " \t\t > unaware of the terror that had befell his beloved KINGDOM.");
-		sleep(5700);
+		sleep(5700); // I REALLY don't want to write more story lol
 		
 		
 		/* GAME LOOP */
